@@ -1,0 +1,6 @@
+{
+  "name": "OpenFace DevContainer",
+  "dockerComposeFile": "../docker-compose.yml",
+  "service": "openface",
+  "workspaceFolder": "/workspace"
+}

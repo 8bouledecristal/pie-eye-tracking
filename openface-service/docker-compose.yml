@@ -10,20 +10,17 @@ services:
   ## Todo: make a service which can use the container interactively
   openface:
     container_name: openface
-    build:
-      context: /home/bolympio/pie/pie-eye-tracking/openface-service/OpenFace/
-      dockerfile: /home/bolympio/pie/pie-eye-tracking/openface-service/OpenFace/docker/Dockerfile
+    build: 
+      context: ./OpenFace/
+      dockerfile: /home/bolympio/pie/pie-eye-tracking/openface-service/OpenFacePythonLayer/Dockerfile
     # image: "${DOCKERUSER}/openface:${DOCKERTAG}"
     tty: true
     volumes:
       - "${DATA_MOUNT}:${DATA_MOUNT}"
+      - ./:/workspace
     environment:
       DATA_MOUNT: "${DATA_MOUNT}"
     command: ["bash"]
-
-  cleaner:
-    image: python:3.12-slim
-    command: sleep infinity
   
 
   
