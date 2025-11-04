@@ -1,0 +1,6 @@
+{
+    "name" : "OpenFaceAPI DevContainer",
+    "build" : {
+        "dockerfile" : "../Dockerfile"
+    }
+}
