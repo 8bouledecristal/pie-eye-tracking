@@ -2,5 +2,14 @@
   "name": "OpenFace DevContainer",
   "dockerComposeFile": "../docker-compose.yml",
   "service": "openface",
-  "workspaceFolder": "/workspace"
+  "workspaceFolder": "/workspace",
+
+  "customizations": {
+    "vscode": {
+      "settings": {},
+      "extensions": [
+        "ms-python.vscode-pylance"
+      ]
+    }
+  }
 }

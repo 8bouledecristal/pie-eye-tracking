@@ -96,6 +96,24 @@ RUN mkdir -p build && cd build && \
     DESTDIR=/root/diff ninja install
 
 
+
+
+# # ==================== Stage 2: Final Python API =======================
+# FROM python:3.12-slim as final
+
+# WORKDIR /root
+
+# # Copy in only necessary libraries
+# COPY --from=openface /root/diff /
+
+# # Since we "imported" the build artifacts, we need to reconfigure ld
+# RUN ldconfig
+
+# WORKDIR /workspace
+
+## ==================== Python dependency ===========================
+
+
 ## ==================== Streamline container ===========================
 ## Clean up - start fresh and only copy in necessary stuff
 ## This shrinks the image from ~8 GB to ~1.6 GB
@@ -109,6 +127,23 @@ COPY --from=openface /root/diff /
 # Since we "imported" the build artifacts, we need to reconfigure ld
 RUN ldconfig
 
-# # ## ================== Python layer ====================================
+# # # ## ================== Python layer ====================================
 
-WORKDIR /workspace
+RUN apt-get update && apt-get upgrade -y \
+    apt-get install -y python3 python3-pip \
+    rm -rf /var/lib/apt/lists/*
+
+# FROM python:3.12-slim as openface_python_layer
+
+# WORKDIR /workspace
+
+# ---- Install Python 3.12 ----
+# RUN apt-get update && \
+#     apt-get install -y software-properties-common curl && \
+#     add-apt-repository ppa:deadsnakes/ppa -y && \
+#     apt-get update && \
+#     apt-get install -y python3.12  && \
+#     curl -sS https://bootstrap.pypa.io/get-pip.py | python3.12 && \
+#     update-alternatives --install /usr/bin/python python /usr/bin/python3.12 1 && \
+#     update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.12 1 && \
+#     rm -rf /var/lib/apt/lists/*
