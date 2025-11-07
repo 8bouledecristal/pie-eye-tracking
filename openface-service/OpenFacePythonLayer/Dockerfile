@@ -135,6 +135,8 @@ RUN apt-get update && apt-get upgrade -y \
 
 # FROM python:3.12-slim as openface_python_layer
 
+RUN apt-get update && apt-get install ffmpeg libsm6 libxext6  -y
+
 # WORKDIR /workspace
 
 # ---- Install Python 3.12 ----
