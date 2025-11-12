@@ -3,7 +3,6 @@
   "dockerComposeFile": "../docker-compose.yml",
   "service": "openface",
   "workspaceFolder": "/workspace",
-
   "customizations": {
     "vscode": {
       "settings": {},
