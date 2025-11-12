@@ -10,12 +10,13 @@ uri = "ws://192.168.178.46:8080"
 FPS = 30
 
 async def sender():
-    cap = cv2.VideoCapture(video_path)
+    cap = cv2.VideoCapture(0)
     async with websockets.connect(uri=uri) as ws:
         while True:
             ret, frame = cap.read()
             if not ret:
-                break
+                print("not ret")
+                continue
             # Downscale if needed
             frame = cv2.resize(frame, (640, 480))
             await ws.send(frame.tobytes())

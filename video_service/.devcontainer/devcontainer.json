@@ -8,6 +8,11 @@
     "source=${localWorkspaceFolder},target=/workspace,type=bind"
   ],
   "appPort": ["8080:8080"],
+  "runArgs": [
+    "--privileged",
+    "-v",
+    "/dev/video0:/dev/video0"
+  ],
   "customizations": {
     "vscode": {
       "settings": {},

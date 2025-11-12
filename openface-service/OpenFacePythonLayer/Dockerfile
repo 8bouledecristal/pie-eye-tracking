@@ -133,19 +133,6 @@ RUN apt-get update && apt-get upgrade -y \
     apt-get install -y python3 python3-pip \
     rm -rf /var/lib/apt/lists/*
 
-# FROM python:3.12-slim as openface_python_layer
-
 RUN apt-get update && apt-get install ffmpeg libsm6 libxext6  -y
 
-# WORKDIR /workspace
 
-# ---- Install Python 3.12 ----
-# RUN apt-get update && \
-#     apt-get install -y software-properties-common curl && \
-#     add-apt-repository ppa:deadsnakes/ppa -y && \
-#     apt-get update && \
-#     apt-get install -y python3.12  && \
-#     curl -sS https://bootstrap.pypa.io/get-pip.py | python3.12 && \
-#     update-alternatives --install /usr/bin/python python /usr/bin/python3.12 1 && \
-#     update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.12 1 && \
-#     rm -rf /var/lib/apt/lists/*
