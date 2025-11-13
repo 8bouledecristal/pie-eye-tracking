@@ -1,0 +1,5 @@
+Input:webcam
+Camera parameters:500,500,320,240
+Output HOG:webcam_2025-11-12-19-41.hog
+Output video:webcam_2025-11-12-19-41.avi
+Output aligned directory:webcam_2025-11-12-19-41_aligned
