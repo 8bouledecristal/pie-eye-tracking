@@ -1,0 +1,20 @@
+{
+  "name": "Decision Service DevContainer",
+  "build": {
+    "dockerfile": "../Dockerfile"
+  },
+  "workspaceFolder": "/workspace",
+  "mounts": [
+    "source=${localWorkspaceFolder},target=/workspace,type=bind"
+  ],
+  "appPort": ["8082:8082"],
+  "customizations": {
+    "vscode": {
+      "settings": {},
+      "extensions": [
+        "ms-python.vscode-pylance",
+        "ms-azuretools.vscode-docker"
+      ]
+    }
+  }
+}
