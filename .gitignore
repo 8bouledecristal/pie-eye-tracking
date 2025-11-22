@@ -1,3 +1,4 @@
 ./openface-service/test
 *.mp4
 *.jpg
+*.csv
