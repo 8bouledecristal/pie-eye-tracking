@@ -85,7 +85,7 @@ RUN curl https://github.com/opencv/opencv/archive/${OPENCV_VERSION}.tar.gz -LO &
 FROM cv_deps as openface
 WORKDIR /root/openface
 
-COPY ./ ./
+COPY ./OpenFace ./
 
 COPY --from=model_data /data/patch_experts/* \
     /root/openface/lib/local/LandmarkDetector/model/patch_experts/
@@ -134,6 +134,11 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 RUN apt-get update && apt-get install ffmpeg libsm6 libxext6  -y
+
+COPY ./requirements.txt .
+
+RUN pip3 install -r requirements.txt
+
 
 EXPOSE 8081
 
