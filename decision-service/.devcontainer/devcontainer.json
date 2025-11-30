@@ -13,7 +13,8 @@
       "settings": {},
       "extensions": [
         "ms-python.vscode-pylance",
-        "ms-azuretools.vscode-docker"
+        "ms-azuretools.vscode-docker",
+        "firefox-devtools.vscode-firefox-debug"
       ]
     }
   }

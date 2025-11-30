@@ -2,15 +2,24 @@ body {
     font-family: Arial, sans-serif;
     text-align: center;
     margin-top: 20px;
+    height: 90vh;
+    /* overflow: hidden; */
 }
 
 #canvas {
     border: 2px solid rgb(181, 76, 76);
 }
 
+.container {
+    /* display: flex;
+    justify-content: space-around; */
+    background-color: lightgrey;
+    height: 100vh;
+}
 
-.zone {
+.box {
     flex: 1;
-    background: gray;
-    transition: background 0.1s ease; /* smooth color change */
+    background-color: black;
+    border: 2px solid rgb(216, 7, 7);
+    height: 100%;
 }
