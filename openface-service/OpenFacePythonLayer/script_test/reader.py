@@ -20,5 +20,4 @@ if __name__ == "__main__" :
     ]
     
     df = pd.read_csv("/workspace/data/data.csv")
-    df_selected = df[gaze_angle]
-    print(df_selected.max(), df_selected.min())
+    print(df.info())

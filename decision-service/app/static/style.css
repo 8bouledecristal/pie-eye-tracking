@@ -1,0 +1,16 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin-top: 20px;
+}
+
+#canvas {
+    border: 2px solid rgb(181, 76, 76);
+}
+
+
+.zone {
+    flex: 1;
+    background: gray;
+    transition: background 0.1s ease; /* smooth color change */
+}
