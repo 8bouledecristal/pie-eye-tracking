@@ -16,7 +16,12 @@ RUN wget -q https://www.dropbox.com/s/7na5qsjzz8yfoer/cen_patches_0.25_of.dat &&
 ## This will be our base image for OpenFace, and also the base for the compiler
 ## image. We only need packages which are linked
 
-FROM ubuntu:20.04 as ubuntu_base
+# On définit l'architecture cible
+ARG TARGETPLATFORM
+ARG TARGETARCH
+
+FROM --platform=$TARGETPLATFORM ubuntu:20.04 as ubuntu_base
+RUN echo "Building for platform : ${TARGETPLATFORM}, arch : ${TARGETARCH}"
 
 LABEL maintainer="Michael McDermott <mikemcdermott23@gmail.com>"
 
@@ -95,23 +100,6 @@ RUN mkdir -p build && cd build && \
     ninja &&\
     DESTDIR=/root/diff ninja install
 
-
-
-
-# # ==================== Stage 2: Final Python API =======================
-# FROM python:3.12-slim as final
-
-# WORKDIR /root
-
-# # Copy in only necessary libraries
-# COPY --from=openface /root/diff /
-
-# # Since we "imported" the build artifacts, we need to reconfigure ld
-# RUN ldconfig
-
-# WORKDIR /workspace
-
-## ==================== Python dependency ===========================
 
 
 ## ==================== Streamline container ===========================
