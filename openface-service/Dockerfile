@@ -68,9 +68,9 @@ RUN cd dlib/build && \
           -DDLIB_NO_GUI_SUPPORT=ON \
           -DCMAKE_C_COMPILER_LAUNCHER=ccache \
           -DCMAKE_CXX_COMPILER_LAUNCHER=ccache .. &&\
-    ninja -j${nproc} && \
+    ninja  && \
     ninja install && \
-    DESTDIR=/root/diff ninja -j${nproc} install &&\
+    DESTDIR=/root/diff ninja install &&\
     ldconfig
 
 ## ==================== Building OpenCV ======================
