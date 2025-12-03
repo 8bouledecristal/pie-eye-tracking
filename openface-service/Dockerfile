@@ -83,7 +83,8 @@ RUN curl https://github.com/opencv/opencv/archive/${OPENCV_VERSION}.tar.gz -LO &
     mkdir -p opencv/build && \
     cd opencv/build 
 
-RUN cmake -D CMAKE_BUILD_TYPE=RELEASE \
+RUN cd opencv/build && \
+    cmake -D CMAKE_BUILD_TYPE=RELEASE \
         -D CMAKE_INSTALL_PREFIX=/usr/local \
         -D WITH_TBB=ON -D WITH_CUDA=OFF \
         -DWITH_QT=OFF -DWITH_GTK=OFF\
