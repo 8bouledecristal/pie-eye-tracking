@@ -73,16 +73,17 @@ RUN cd dlib/build && \
     DESTDIR=/root/diff ninja -j${nproc} install &&\
     ldconfig
 
-# ## ==================== Building OpenCV ======================
-# ENV OPENCV_VERSION=4.1.0
+## ==================== Building OpenCV ======================
+ENV OPENCV_VERSION=4.1.0
 
-# RUN curl https://github.com/opencv/opencv/archive/${OPENCV_VERSION}.tar.gz -LO &&\
-#     tar xf ${OPENCV_VERSION}.tar.gz && \
-#     rm ${OPENCV_VERSION}.tar.gz &&\
-#     mv opencv-${OPENCV_VERSION} opencv && \
-#     mkdir -p opencv/build && \
-#     cd opencv/build && \
-#     cmake -D CMAKE_BUILD_TYPE=RELEASE \
+RUN curl https://github.com/opencv/opencv/archive/${OPENCV_VERSION}.tar.gz -LO &&\
+    tar xf ${OPENCV_VERSION}.tar.gz && \
+    rm ${OPENCV_VERSION}.tar.gz &&\
+    mv opencv-${OPENCV_VERSION} opencv && \
+    mkdir -p opencv/build && \
+    cd opencv/build 
+
+# RUN cmake -D CMAKE_BUILD_TYPE=RELEASE \
 #         -D CMAKE_INSTALL_PREFIX=/usr/local \
 #         -D WITH_TBB=ON -D WITH_CUDA=OFF \
 #         -DWITH_QT=OFF -DWITH_GTK=OFF\
